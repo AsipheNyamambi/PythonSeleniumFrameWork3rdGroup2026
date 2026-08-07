@@ -1,0 +1,23 @@
+from selenium import webdriver
+
+
+def setup(browser):
+
+    #Initialize the WebDriver based on the browser name provided
+    if browser.lower == "chrome":
+        driver = webdriver.Chrome()
+
+    elif browser.lower == "edge":
+        driver = webdriver.Edge()
+
+    elif browser.lower == "safari":
+        driver = webdriver.Safari()
+
+    else:
+        driver = webdriver.Firefox()
+
+    #returning the Webdriver instance
+    return driver
+def pytest_addoption(parser):
+    #Add
+    parser.addoption("--browser")
