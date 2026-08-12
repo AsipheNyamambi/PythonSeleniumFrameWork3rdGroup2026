@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -7,6 +8,6 @@ class home_page:
     def __init__(self,driver):
         self.driver = driver
 
-    def login(self):
+    def click_main_login_button(self):
         wait = WebDriverWait(self.driver, 10)
-        wait.until(EC.visibility_of_element_located((By.XPATH, self.main_login_button_xpath))).click()
+        wait.until(self.driver.find_element(By.ID, self.main_login_button_xpath).click())

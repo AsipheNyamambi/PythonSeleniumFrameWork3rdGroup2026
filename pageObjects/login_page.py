@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -9,6 +10,12 @@ class LoginPage:
     def __init__(self, driver):
         self.driver = driver
 
-
-    def username(self):
+    def getUsername(self, username ):
         wait = WebDriverWait(self.driver, 10)
+        wait.until(self.driver.find_element(By.ID ,self.username_id)).send_keys(username)
+
+    def getPassword(self, password ):
+        self.driver.find_element(By.ID,self.password_id).send_keys(password)
+
+    def clickLoginButton(self):
+        self.driver.find_element(By.ID,self.login_button_id).click()

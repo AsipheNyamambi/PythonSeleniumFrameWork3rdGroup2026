@@ -1,17 +1,16 @@
 
-#from telnetlib import EC
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.wait import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class TestLogin:
     website_url = "https://ndosisimplifiedautomation.vercel.app/"
     main_login_button_xpath = "//div[@class='nav-user-section']"
     username_id = "login-email"
     password_id = "login-password"
-    login_button_id = "login-button"
+    login_button_id = "login-submit"
     verify_dashboard_content_xpath = "//h2"
 
 
@@ -30,5 +29,7 @@ class TestLogin:
         wait.until(EC.visibility_of_element_located((By.XPATH, self.verify_dashboard_content_xpath ))).is_displayed()
 
 
-        self.driver.close()
+
+
+
 

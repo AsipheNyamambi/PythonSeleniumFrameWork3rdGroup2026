@@ -19,5 +19,5 @@ def setup(browser):
     #returning the Webdriver instance
     return driver
 def pytest_addoption(parser):
-    #Add
+    # Add a command-line option "--browser" to specify the browser
     parser.addoption("--browser")

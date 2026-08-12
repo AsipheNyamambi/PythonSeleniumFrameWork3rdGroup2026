@@ -1,15 +1,20 @@
 import concurrent
 import configparser
+import configparser
 
 config = configparser.RawConfigParser()
 config.read("./Configurations/commonDetails.ini")
 
 class ReadConfig_CommonDetails():
+
     def getDevUrl(self):
-        return config.get("server connection","dev_url")
+        return config.get("Sever Connection", "dev_url")
 
     def getUsername(self):
-        return config.get("server connection","test_url")
+        return config.get("Login Details", "username")
+
+    def getPassword(self):
+        return config.get("Login Details", "password")
 
 
 
