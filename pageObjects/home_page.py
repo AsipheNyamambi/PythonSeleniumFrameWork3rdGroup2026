@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class home_page:
+class Home_page:
 
     main_login_button_xpath = "//div[@class='nav-user-section']"
     def __init__(self,driver):
