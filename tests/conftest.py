@@ -1,23 +1,30 @@
+import pytest
 from selenium import webdriver
 
-
+@pytest.fixture
 def setup(browser):
 
     #Initialize the WebDriver based on the browser name provided
-    if browser.lower == "chrome":
+    if browser.lower() == "chrome":
         driver = webdriver.Chrome()
 
-    elif browser.lower == "edge":
+    elif browser.lower() == "edge":
         driver = webdriver.Edge()
 
-    elif browser.lower == "safari":
+    elif browser.lower() == "Safari":
         driver = webdriver.Safari()
 
     else:
         driver = webdriver.Firefox()
 
-    #returning the Webdriver instance
+    #Returning the WebDriver instance
     return driver
+
+
 def pytest_addoption(parser):
-    # Add a command-line option "--browser" to specify the browser
+    #Add a command-line option "--browser" to specify the browser
     parser.addoption("--browser")
+
+@pytest.fixture
+def browser(request):
+    return request.config.getoption("--browser")
